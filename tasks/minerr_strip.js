@@ -13,6 +13,8 @@ var utils = require('../lib/utils.js');
 module.exports = function(grunt) {
 
   grunt.registerMultiTask('minerr_strip', 'Strips minErr error messages from your build.', function() {
-    utils.stripErrors(this.target, grunt.version, this.data); 
+    var id = grunt.config.get('pkg.name'),
+      version = grunt.config.get('pkg.version');
+    utils.stripErrors(this.target, id || '', version || '', this.data); 
   });
 };
