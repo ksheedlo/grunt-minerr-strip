@@ -8,7 +8,7 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -17,7 +17,8 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         'tasks/*.js',
-        '<%= nodeunit.tests %>',
+        'lib/*.js',
+        'spec/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',

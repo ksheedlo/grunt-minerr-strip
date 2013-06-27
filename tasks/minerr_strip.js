@@ -10,9 +10,9 @@
 
 var utils = require('../lib/utils.js');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  grunt.registerMultiTask('minerr_strip', 'Strips minErr error messages from your build.', function() {
+  grunt.registerMultiTask('minerr_strip', 'Strips minErr error messages from your build.', function () {
     var id = grunt.config.get('pkg.name'),
       version = grunt.config.get('pkg.version');
     utils.stripErrors(this.target, id || '', version || '', this.data); 

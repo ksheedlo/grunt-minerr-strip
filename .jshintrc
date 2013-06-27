@@ -5,10 +5,15 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
+  "nonew": true,
   "sub": true,
+  "quotmark": "single",
   "undef": true,
+  "unused": true,
+  "strict": true,
   "boss": true,
   "eqnull": true,
   "node": true,
-  "es5": true
+  "es5": true,
+  "indent": 2
 }

@@ -123,7 +123,7 @@ describe('The MinErr parser', function () {
   });
 
   it('should remove the descriptive name', function () {
-    expect(function(testMinErr, test) {
+    expect(function (testMinErr, test) {
       testMinErr('test1', 'This is a {0}', test);
     }).toTransformTo(function (testMinErr, test) {
       testMinErr('test1', test);
@@ -131,7 +131,7 @@ describe('The MinErr parser', function () {
   });
 
   it('should extract error info', function () {
-    expect(function(testMinErr, test) {
+    expect(function (testMinErr, test) {
       testMinErr('test1', 'This is a {0}', test);
     }).toExtract({ test: {
       test1: 'This is a {0}'
@@ -139,7 +139,7 @@ describe('The MinErr parser', function () {
   });
 
   it('should extract multiple error messages from a single namespace', function () {
-    expect(function(testMinErr, test) {
+    expect(function (testMinErr, test) {
       testMinErr('test1', 'This is a {0}', test);
       minErr('test')('test2', 'The answer is {0}', 42);
     }).toExtract({ test: {
@@ -262,7 +262,7 @@ describe('The MinErr parser', function () {
         ' function minErr(module) {' +
         '   return module + 42;' +
         ' }'),
-      subAst = toAST(function minErr (module) {
+      subAst = toAST(function minErr(module) {
           return module + 42;
         }).body[0].expression,
       strip;
