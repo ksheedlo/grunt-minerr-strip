@@ -66,4 +66,4 @@ Pull requests are welcome! Remember to keep the following rules in mind:
 
 
 ## Release History
-_(Nothing yet)_
+- 2013-06-26 v0.1.0 Initial release
