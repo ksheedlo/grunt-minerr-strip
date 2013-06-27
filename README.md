@@ -25,65 +25,45 @@ In your project's Gruntfile, add a section named `minerr_strip` to the data obje
 ```js
 grunt.initConfig({
   minerr_strip: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+    'errors.json': {
+      files: {
+        'foo.strip.js': 'foo.js',
+        'bar.strip.js': 'bar.js',
+        'baz.strip.js': 'baz.js'
+      },
+      url: 'http://example.com/minerr/'
+    }
   },
 })
 ```
 
-### Options
-
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+This example strips `minErr` errors from the files `foo.js`, `bar.js` and `baz.js`, producing `foo.strip.js`, `bar.strip.js` and `baz.strip.js` respectively. URLs logged to the command line will start with `http://example.com/minerr/`.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### Options
 
-```js
-grunt.initConfig({
-  minerr_strip: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
+Each target produces a JSON file of the same name containing errors and metadata. It can be configured with the following options:
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+##### files
 
-```js
-grunt.initConfig({
-  minerr_strip: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
+Type: `object` Default value: `{}`
+
+Each entry is a `string` mapping to `string`. The object maps stripped file names to the dependent file to strip.
+
+##### url
+
+Type: `string` Default value: ''
+
+This url will be substituted in the production minErr implementation which is in turn substituted for minErr definitions in user code.
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+Pull requests are welcome! Remember to keep the following rules in mind:
+- All features or bug fixes must be documented by one or more specs. We use [Jasmine](http://pivotal.github.io/jasmine).
+- Submissions must pass JSHint. Run `grunt jshint` to check this.
+- Instead of complex inheritance hierarchies, we prefer simple objects. We use prototypical inheritance only when absolutely necessary.
+- We love functions and closures and, whenever possible, prefer them over objects.
+
 
 ## Release History
 _(Nothing yet)_
