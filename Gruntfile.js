@@ -32,8 +32,11 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     minerr_strip: {
       'errors.json': {
-        'fixtures/test1.strip.js': 'fixtures/test1.js',
-        'fixtures/test2.strip.js': 'fixtures/test2.js'
+        files: {
+          'fixtures/test1.strip.js': 'fixtures/test1.js',
+          'fixtures/test2.strip.js': 'fixtures/test2.js'
+        },
+        url: 'http://docs.example.com/minerr/'
       }
     },
 
